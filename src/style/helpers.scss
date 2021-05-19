@@ -14,37 +14,37 @@ $color-check-box-fill: #F5F5F5;
 $color-check-box-stroke: #E4E4E4;
 $color-button-fill: #4292F4;
 
+
 // @media (min-width: 576px) { ... }
+// phones (min-width 576px and up)
+$screen-min-xs: 576px;
+
 // Small devices (min-width 576px and up)
-$screen-min-sm: 576px;
+$screen-min-sm: 768px;
 
-// Medium devices (min-width 768px and up)
-$screen-min-md: 768px;
+// Medium devices (min-width 1024px and up)
+$screen-min-md: 1024px;
 
-// Large devices (min-width 992px and up)
-$screen-min-lg: 992px;
+// Large devices (min-width 1366px and up)
+$screen-min-lg: 1366px;
 
-// Extra large devices (min-width 1200px and up)
-$screen-min-xl: 1200px;
+// Extra large devices (min-width 1536px and up)
+$screen-min-xl: 1536px;
 
-// @media (max-width: 575.98px) { ... }
-// extra-small devices (max-width less than 575px)
-$screen-max-xs: 575.98px;
 
-// Small devices (max-width less than 768px)
-$screen-max-sm: 767.98px;
+
+// @media (max-width: 575.99px) { ... }
+// phones (max-width less than 575px)
+$screen-max-mini: 575.99px;
+
+// extra-small devices (max-width less than 768px)
+$screen-max-xs: 767.99px;
+
+// Small devices (max-width less than 1024px)
+$screen-max-sm: 1023.99px;
 
 // Medium devices (max-width less than 992px)
-$screen-max-md: 991.98px;
+$screen-max-md: 1365.99px;
 
 // Large devices (max-width less than 1200px)
-$screen-max-lg: 1199.98px;
-
-
-//-------mixins-------
-@mixin standard-mobile-breakpoint{
-    @media (max-width: $screen-max-md) { 
-        width: $column-full-width;
-        @content;
-    }
-} 
+$screen-max-lg: 1535.99px;
