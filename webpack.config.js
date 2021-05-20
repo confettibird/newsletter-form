@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const apiMocker = require("connect-api-mocker");
 
 module.exports = {
   entry: {
@@ -17,6 +18,9 @@ module.exports = {
   },
   mode: "development",
   devServer: {
+    before: function (app) {
+      app.use(apiMocker("/newsletter", "mocks/newsletter"));
+    },
     contentBase: "./dist",
   },
   module: {

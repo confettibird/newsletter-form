@@ -10,6 +10,18 @@ body {
   justify-content: flex-start;
   padding: 3% 0;
 }
+.error-msg {
+  color: red;
+  font-size: $font-size-body;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  background-color: white;
+  display: none;
+
+}
 #form-container {
   display: flex;
   flex-direction: column;
@@ -17,11 +29,11 @@ body {
   width: 90vw;
   border-radius: 10px;
   background-color: #fff;
-  -webkit-box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.10); 
-  box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.10);
-    @media (min-width: $screen-min-xl){
-      max-width: 950px;
-    }
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.1);
+  @media (min-width: $screen-min-xl) {
+    max-width: 950px;
+  }
 
   h1 {
     font-size: $font-size-h1;
@@ -39,115 +51,130 @@ body {
     .heading {
       font-weight: 300;
     }
-    @media (max-width: $screen-max-sm){
+    @media (max-width: $screen-max-sm) {
       margin-bottom: 1%;
     }
   }
-  .form-option-row {
-    width: 80%;
-    padding: 1% 2%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2%;
-    &:hover {
-      background-color: rgba(0,0,0,0.02);
-      cursor: pointer;
-    }
-    @media (min-width: $screen-min-lg){
-      // bit more space on larger screens
-      width: 90%;
-    }
-    @media (max-width: $screen-max-sm){
-      // even a bit more space on smaller screens
-      padding: 2% 0;
-      width: 100%;
-      margin-bottom: 5%;
-    }
+  .form-option-row-wrapper {
+    width: 100%;
+    padding: 0;
 
-    .option-items {
-      display: block;
-      flex-basis: auto;
-      align-self: auto;
-      order: 0;
-      flex-shrink: 1;
-      flex-wrap: nowrap;
-      @media (max-width: $screen-max-sm){
-        flex-wrap:nowrap;
-      }
-    }
-    .option-items:nth-child(1){
-      width: 20%;
-      @media (max-width: $screen-max-sm){
-        width: 100%;
-      }
-    }
-    .option-items:nth-child(2){
-      width: 70%;
-      @media (max-width: $screen-max-sm){
-        width: 80%;
-      }
-    }
-    .option-items:nth-child(3){
-      width: 10%;
+    .form-option-row {
+      width: 80%;
+      margin: 0 auto 2% auto;
+      padding: 1% 2%;
       display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-end;
-    }
-    .option-img{
-      background-color: $color-placeholder;
-      width: 150px;
-      height: 100px;
-      @media (max-width: $screen-max-sm){
-        margin: auto;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+        cursor: pointer;
       }
-    }
-    .option-text{
-      justify-content: left;
-    }
-    .option-check-box{
-      border-radius: 50%;
-      background-color:$color-check-box-fill;
-      border: 1px solid $color-check-box-stroke;
-      height: 50px;
-      width: 50px;
-      @media (max-width: $screen-max-sm){
-        height: 30px;
-        width: 30px;
+      @media (min-width: $screen-min-lg) {
+        // bit more space on larger screens
+        width: 90%;
+      }
+      @media (max-width: $screen-max-sm) {
+        // even a bit more space on smaller screens
+        padding: 2% 0;
+        width: 100%;
+        margin-bottom: 5%;
+      }
+
+      .option-items {
+        display: block;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+        flex-shrink: 1;
+        flex-wrap: nowrap;
+        @media (max-width: $screen-max-sm) {
+          flex-wrap: nowrap;
+        }
+      }
+      .option-items:nth-child(1) {
+        width: 20%;
+        @media (max-width: $screen-max-sm) {
+          width: 100%;
+        }
+      }
+      .option-items:nth-child(2) {
+        width: 70%;
+        @media (max-width: $screen-max-sm) {
+          width: 80%;
+        }
+      }
+      .option-items:nth-child(3) {
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .option-img {
+        background-color: $color-placeholder;
+        width: 150px;
+        height: 100px;
+        @media (max-width: $screen-max-sm) {
+          margin: auto;
+        }
+      }
+      .option-text {
+        justify-content: left;
+        .option-title {
+          text-transform: capitalize;
+        }
+      }
+      .option-check-box {
+        border-radius: 50%;
+        background-color: $color-check-box-fill;
+        border: 1px solid $color-check-box-stroke;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: $screen-max-sm) {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      .option-selected {
+        border: 2px solid $color-button-fill;
+        color: $color-button-fill;
       }
     }
   }
-  
-  .form-submission-container{
+
+  .form-submission-container {
     width: 100%;
-    -webkit-box-shadow: 0px -10px 7px 0px rgba(0,0,0,0.21); 
-    box-shadow: 0px -10px 7px 0px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 0px -10px 7px 0px rgba(0, 0, 0, 0.21);
+    box-shadow: 0px -10px 7px 0px rgba(0, 0, 0, 0.21);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 4% 0;
-  
-    .form-submit-format{
-      border-radius:5px;
+
+    .form-submit-format {
+      border-radius: 5px;
       margin-bottom: 1.5%;
-      @media (max-width: $screen-max-sm){
+      @media (max-width: $screen-max-sm) {
         margin-bottom: 3%;
       }
     }
-    .form-email-input{
+    .form-email-input {
       background-color: $color-check-box-fill;
       border: 1px solid $color-check-box-stroke;
       width: calc(50% - 20px);
       height: calc(50px - 2px);
       padding: 1px 10px;
-      @media (max-width: $screen-max-sm){
+      @media (max-width: $screen-max-sm) {
         width: calc(90% - 20px);
       }
     }
-    .form-submit{
+    .form-submit-btn {
       color: #fff;
       background-color: $color-button-fill;
       width: 50%;
@@ -155,28 +182,33 @@ body {
       border: none;
       font-size: $font-size-h2;
       text-transform: uppercase;
-      -webkit-box-shadow: 0px 4px 13px 0px rgba(66,146,244,0.46); 
-      box-shadow: 0px 4px 13px 0px rgba(66,146,244,0.46);
-      @media (max-width: $screen-max-sm){
+      -webkit-box-shadow: 0px 4px 13px 0px rgba(66, 146, 244, 0.46);
+      box-shadow: 0px 4px 13px 0px rgba(66, 146, 244, 0.46);
+      &:hover {
+        cursor: pointer;
+      }
+      &:disabled {
+        background-color: #707070;
+      }
+      @media (max-width: $screen-max-sm) {
         width: 90%;
       }
     }
-    .opt-out-container{
-      @media (max-width: $screen-max-sm){
+    .opt-out-container {
+      @media (max-width: $screen-max-sm) {
         width: 90%;
         text-align: center;
       }
-      input#opt-out{
-        border-color: rgba(0,0,0,0.20);
+      input#opt-out {
+        border-color: rgba(0, 0, 0, 0.2);
         width: 20px;
         height: 20px;
         vertical-align: text-bottom;
       }
-      label{
+      label {
         opacity: 70%;
-        font-size:12px;
+        font-size: 12px;
       }
     }
   }
-  
 }
